@@ -67,3 +67,34 @@ public class WeightedAverageCalculation {
   }
 
 }
+
+--------------------------------------------------------------------------------------------------------
+JAP C1 S3 INTRODUCTIONTOJAVA PC3
+
+package com.jap.calorietracker;
+
+
+public class CalorieTracker {
+
+    //This function takes the calories burnt by the activities and the calorie intake in a day
+    // and returns the weight lost by Anne
+
+    public int weightLostInAMonth(int cycling,int running,int swimming,int calorieIntake)
+    {
+        // write logic here
+		calorieIntake=30*calorieIntake;
+		int caloriesBurnt=4*2*(cycling+running+swimming);
+		if (caloriesBurnt>0)
+		return (caloriesBurnt-calorieIntake)/1000;
+		else
+		return 0;
+
+    }
+
+
+    public static void main(String[] args) {
+        CalorieTracker ct = new CalorieTracker();
+        System.out.println("Weight lost by Anne in a month is : "+ct.weightLostInAMonth(300,200,500,2000)+" pounds");
+
+    }
+}
