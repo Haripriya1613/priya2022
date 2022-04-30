@@ -1,39 +1,48 @@
-package com.jap.uniquearray;
+package com.jap.salesanalyzer;
+import java.util.*;
 
+import java.text.ParseException;
 
-
-
-public class UniqueArrayDemo {
-
-    public static void main(String[] aa) {
+/**
+This class performs the file reading and stores the data in SalesRecord array
+ */
+public class SalesAnalysis {
+    // This method reads a file and returns the count of lines in the file
+    // omit any headers present in the file
 	
+     public int countOfSalesRecords(String fileName){
+		 FileReader fr=new FileReader(filename);
+	int i=0;
+	int recordCount = 0;
+	Scanner sc = new Scanner(filename);
 
-        //declare and initialize integer Array in numberArray Variable
+      // read each line and
+      // count number of lines
+      while(sc.hasNextLine()) {
+        sc.nextLine();
+        recordCount++;
+      }
+        
 
-        int [] numberArray = {101,105,106,107,108,109};
-		
-		
-
-        UniqueArrayDemo uniqueArrayDemo = new UniqueArrayDemo();
-        boolean result = uniqueArrayDemo.getUniqueArrayElement(numberArray);
-        System.out.println("Employee id duplication result: "+result);
-
-
+        return recordCount;
     }
 
+    // This method reads a file and adds each line of the file into the corresponding SalesRecord object
+    public SalesRecord[] readRecords(String fileName,int recordCount) throws ParseException {
+        SalesRecord[] salesData = null;
+        return salesData;
+     }
 
-    public boolean getUniqueArrayElement(int numberArray[]){
-		
-		boolean result=false;
-		for(int j=0;j<numberArray.length;j++)
-		{
-			for(int k=j+1;k<numberArray.length;++k)
-			{
-				if(numberArray[j]==numberArray[k])
-				  return false;
-			}
-		}
-		return true;
-	}	
+    public static void main(String[] args) throws ParseException {
+        SalesAnalysis salesAnalysis = new SalesAnalysis();
+        // read the file purchase_details.csv
+        String fileName = "src/main/resources/purchase_details.csv";
+        // the count of lines in the file
 
+        int count = salesAnalysis.countOfSalesRecords(filename);
+        //array to hold the sales records
+        SalesRecord[] salesRecords = null;
+
+       // display the records that have been read from the file
+    }
 }
